@@ -25,6 +25,7 @@ import os
 import re
 import sys
 import textwrap
+import json
 
 word_regex_def = u"[\\w\\-'’`]+"
 # While we want to treat characters like ( or " as okay for a starting break,
@@ -749,6 +750,7 @@ def _script_main():
 
 def main(*args):
     """Contains flow control"""
+    json.dump(args, sys.stderr)
     options, parser = parse_options(args)
 
     if options.regex and options.write_changes:
